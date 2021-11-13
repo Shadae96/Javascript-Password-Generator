@@ -27,6 +27,40 @@ return symbols[Math.floor(Math.random()*symbols.length)]
 console.log(getRandomNumber())
 
 
+function generatePassword(){
+  // const passwordOptions = {
+  //   Number: getRandomLower,
+  //   Lower: getRandomLower,
+  //   Upper: getRandomLower,
+  //   Special: getRandomSpecialCharacter
+  // };
+  // var number = typeof(number)
+  var number = parseInt(prompt("How many characters would you like your password to contain?", 25));
+  if (!number) {window.alert ("Please enter a number");}
+  else if (number <20 || number>128) { alert ("Please enter a number between 20 and 128");}
+  }
+  // function isNumber(input) {
+  //   return typeof input === "number" && !isNaN(input);
+  // };
+  // if (typeof passwordLength == Number) {console.log ("input must be greater than 20 and less than 128");
+  
+  // };
+
+ window.confirm("Click Ok to confirm including special characters", "yes"
+  );
+
+window.confirm("Click Ok to confirm including numeric values", "yes"
+
+  );
+ window.confirm("Click Ok to confirm including lowercase characters","yes"
+
+  );
+window.confirm("CLick ok to confirm including uppercase characters","yes"
+  );
+
+return "Generated password"
+
+
 
 
 
@@ -40,7 +74,7 @@ console.log(getRandomNumber())
 // Write password to the #password input (starter code)
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
@@ -78,9 +112,3 @@ generateBtn.addEventListener("click", writePassword);
 //      b.)Cancel- move to next step and do not include uppercase characters
 
 // 6.)generate password
-
-
-
-
-
-
