@@ -27,38 +27,47 @@ return symbols[Math.floor(Math.random()*symbols.length)]
 console.log(getRandomNumber())
 
 
+// Generate Password Function
 function generatePassword(){
-  // const passwordOptions = {
-  //   Number: getRandomLower,
-  //   Lower: getRandomLower,
-  //   Upper: getRandomLower,
-  //   Special: getRandomSpecialCharacter
-  // };
-  // var number = typeof(number)
-  var number = parseInt(prompt("How many characters would you like your password to contain?", 25));
-  if (!number) {window.alert ("Please enter a number");}
-  else if (number <20 || number>128) { alert ("Please enter a number between 20 and 128");}
-  }
-  // function isNumber(input) {
-  //   return typeof input === "number" && !isNaN(input);
-  // };
-  // if (typeof passwordLength == Number) {console.log ("input must be greater than 20 and less than 128");
-  
-  // };
+  Elements = []
+  var numberOfCharacters = parseInt(window.prompt("How many characters would you like your password to contain?", 25));
 
- window.confirm("Click Ok to confirm including special characters", "yes"
-  );
+  if (numberOfCharacters <= 128 && numberOfCharacters >= 20){console.log (" + acceptable value");
+}
+else { alert ("Please enter a number between 20 and 128");}
 
-window.confirm("Click Ok to confirm including numeric values", "yes"
+// Check for password criteria
 
-  );
- window.confirm("Click Ok to confirm including lowercase characters","yes"
+ let specialValue = window.confirm("Click Ok to confirm including special characters", "yes");
+ console.log ("include Special Characters " + specialValue);
 
-  );
-window.confirm("CLick ok to confirm including uppercase characters","yes"
-  );
+let numericValue = window.confirm("Click Ok to confirm including numeric values", "yes");
+console.log ("include numberic Values " + numericValue);
 
-return "Generated password"
+let lowerCharacter = window.confirm("Click Ok to confirm including lowercase characters","yes");
+console.log ("include lowercase characters " + lowerCharacter);
+
+let upperCharacter = window.confirm("CLick ok to confirm including uppercase characters","yes");
+
+console.log ("include upperCharacter " + upperCharacter);
+
+ if (specialValue || numericValue || lowerCharacter ||upperCharacter ){}
+
+  else alert ("Please select at least one Character Type");
+};
+
+var passwordArray = [];
+if (specialValue) {passwordArray = passwordArray.concat(getRandomSpecialCharacter);}
+if (numericValue) {passwordArray = passwordArray.concat(getRandomNumber);}
+if (lowerCharacter) {passwordArray = passwordArray.concat(getRandomLower);}
+if (upperCharacter) {passwordArray = passwordArray.concat(getRandomUpper);}
+
+
+console.log (passwordArray)
+
+
+
+// // return "Generated password"
 
 
 
