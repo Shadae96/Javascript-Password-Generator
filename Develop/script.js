@@ -28,18 +28,19 @@ console.log(getRandomNumber())
 
 
 // Generate Password Function
-function generatePassword(){
-  Elements = []
+function generatePassword(){{
+  var passwordArray = [""];
   var numberOfCharacters = parseInt(window.prompt("How many characters would you like your password to contain?", 25));
 
-  if (numberOfCharacters <= 128 && numberOfCharacters >= 20){console.log (" + acceptable value");
+  if (numberOfCharacters <= 128 && numberOfCharacters >= 20){console.log ("The number of character is " +numberOfCharacters);
+
 }
-else { alert ("Please enter a number between 20 and 128");}
+else { alert ("Please enter a number between 20 and 128");};
 
 // Check for password criteria
 
- let specialValue = window.confirm("Click Ok to confirm including special characters", "yes");
- console.log ("include Special Characters " + specialValue);
+const specialCharacter = window.confirm("Click Ok to confirm including special characters", "yes");
+ console.log ("include special characters " + specialCharacter);
 
 let numericValue = window.confirm("Click Ok to confirm including numeric values", "yes");
 console.log ("include numberic Values " + numericValue);
@@ -51,27 +52,70 @@ let upperCharacter = window.confirm("CLick ok to confirm including uppercase cha
 
 console.log ("include upperCharacter " + upperCharacter);
 
- if (specialValue || numericValue || lowerCharacter ||upperCharacter ){}
+ if (specialCharacter || numericValue || lowerCharacter ||upperCharacter ){
 
-  else alert ("Please select at least one Character Type");
+  {
+
+    if (specialCharacter ===true) {passwordArray = passwordArray.concat (getRandomSpecialCharacter); 
+    console.log ("yes")}
+    if (numericValue) {passwordArray = passwordArray.concat (getRandomNumber);
+    console.log ("yes")}
+    if (lowerCharacter) {passwordArray = passwordArray.concat (getRandomLower);
+    console.log ("yes")}
+    if (upperCharacter) {passwordArray = passwordArray.concat (getRandomUpper);
+    console.log("yes")}
+    
+    
+    console.log(passwordArray)
+    
+    const passChars = [];
+    for (let i = 0; i < numberOfCharacters; i++) {
+      const characters =
+      passwordArray[Math.floor(Math.random() * passwordArray.length)];
+      passChars.push(String.fromCharCode(characters));
+    return passChars.join ("");
+    };
+  
+ }}
+
+ else {alert ("Please select at least one Character Type");
+  return "Please select at least one Character Type"
+};
 };
 
-var passwordArray = [];
-if (specialValue) {passwordArray = passwordArray.concat(getRandomSpecialCharacter);}
-if (numericValue) {passwordArray = passwordArray.concat(getRandomNumber);}
-if (lowerCharacter) {passwordArray = passwordArray.concat(getRandomLower);}
-if (upperCharacter) {passwordArray = passwordArray.concat(getRandomUpper);}
+// else  {
+
+// if (numberOfCharacters.indexOf(numberOfCharacters) >= 0) {
+//   console.log("Length was selected appropriately");
+//   let passwordArray = [];
+// {
+// if (specialCharacter ===true) {passwordArray = passwordArray.concat(getRandomSpecialCharacter);}
+// if (numericValue) {passwordArray = passwordArray.concat(getRandomNumber);}
+// if (lowerCharacter) {passwordArray = passwordArray.concat(getRandomLower);}
+// if (upperCharacter) {passwordArray = passwordArray.concat(getRandomUpper);}
+
+// }
+
+// const passChars = [];
+// for (let i = 0; i < pwdLength; i++) {
+//   const characters =
+//   passwordArray[Math.floor(Math.random() * passwordArray.length)];
+//   passChars.push(String.fromCharCode(characters));
+// } 
+// };
 
 
-console.log (passwordArray)
-
-
-
-// // return "Generated password"
 
 
 
 
+
+// return passChars
+
+// return passChars.join("");
+
+
+// }
 
 
 
@@ -91,9 +135,7 @@ var passwordText = document.querySelector("#password");
 
 // Add event listener to generate button (starter code)
 generateBtn.addEventListener("click", writePassword);
-
-
-
+}
 
 
 
